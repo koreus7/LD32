@@ -1,0 +1,29 @@
+-main ApplicationMain 
+-cp C:/HaxeToolkit/haxe/lib/HaxePunk/2,5,3
+-D HaxePunk=2.5.3
+-cp C:/HaxeToolkit/haxe/lib/lime/2,3,1
+-D lime=2.3.1
+-cp C:/HaxeToolkit/haxe/lib/openfl/3,0,1
+-D openfl=3.0.1
+-cp C:/HaxeToolkit/haxe/lib/openfl-bitfive/3,0,0
+-D openfl-bitfive=3.0.0
+-cp src
+-D openfl-next
+-D tools=2.3.1
+-D no-compilation
+-D lime-opengl
+-D openfl-html5
+-D canvas
+-D lime-html5
+-D bitfive
+-D html5
+-D web
+--remap flash:openfl
+-resource C:\HaxeToolkit\haxe\lib\HaxePunk\2,5,3\assets\font\04B_03__.ttf.hash@__ASSET__font_04b_03___ttf
+-resource C:\Users\Leo\Google Drive\LD32WIP\assets\font\04B_03__.ttf.hash@__ASSET__font_5
+-js bin/html5/bin/Main2.js
+-cp bin/html5/haxe
+-D html5
+-D html
+--remap flash:flash
+-debug
