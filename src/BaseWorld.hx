@@ -40,7 +40,7 @@ class BaseWorld extends Scene
 		shakeOffsetX = 0.0;
 		shakeOffsetY = 0.0;
 		zoomSpeed = 1.0;
-		currentZoom = 3.0;
+		currentZoom = 1.0;
 		zoomTarget = 1.0;
 		
 		panTargetX = 0.0;
@@ -231,12 +231,13 @@ class BaseWorld extends Scene
 	
 	public function setZoom(value:Float):Void
 	{
+		/*
 		
 		HXP.width = HXP.stage.stageWidth;
 		HXP.height = HXP.stage.stageHeight;
 		
 		HXP.screen.scaleX = HXP.screen.scaleY = value;
-		HXP.resize(HXP.stage.stageWidth, HXP.stage.stageHeight);
+		HXP.resize(HXP.stage.stageWidth, HXP.stage.stageHeight);*/
 	}
 	
 

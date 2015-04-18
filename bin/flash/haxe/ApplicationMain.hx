@@ -78,7 +78,15 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("graphics/player.png");
+		urls.push ("graphics/background.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/concept.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/nun.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -154,7 +162,7 @@ class ApplicationMain {
 			file: "Main2",
 			fps: Std.int (30),
 			fullscreen: false,
-			height: Std.int (480),
+			height: Std.int (600),
 			orientation: "",
 			packageName: "com.example.app",
 			resizable: true,
@@ -162,13 +170,13 @@ class ApplicationMain {
 			title: "HXPTest",
 			version: "1.0.0",
 			vsync: false,
-			width: Std.int (640),
+			width: Std.int (800),
 			
 		}
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 480, "333333");
+		openfl.Lib.embed (null, 800, 600, "333333");
 		#end
 		#else
 		create ();

@@ -4,8 +4,8 @@ import flash.events.Event;
 
 class Main extends Engine
 {
-	public static inline var kScreenWidth:Int = 800;
-	public static inline var kScreenHeight:Int = 600;
+	public static inline var kScreenWidth:Int = 266;
+	public static inline var kScreenHeight:Int = 200;
 	public static inline var kFrameRate:Int = 60;
 	
 	function new()
@@ -19,7 +19,7 @@ class Main extends Engine
 		HXP.console.enable();
 #end
 		
-		HXP.screen.scale = 2;
+		//HXP.screen.scale = 3.0;
 		HXP.scene = new MainScene();
 		
 	}
@@ -38,7 +38,7 @@ class Main extends Engine
 	HXP.width = HXP.stage.stageWidth;
 	HXP.height = HXP.stage.stageHeight;
 	
-	HXP.screen.scaleX = HXP.screen.scaleY = 2;
+	HXP.screen.scaleX = HXP.screen.scaleY = 3.0;
 	HXP.resize(HXP.stage.stageWidth, HXP.stage.stageHeight);
 	
 	//HXP.screen.resize();
