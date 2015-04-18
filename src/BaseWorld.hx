@@ -130,15 +130,26 @@ class BaseWorld extends Scene
 	{
 		if (shakeTimer > 0)
 		{
+			shakeTimer -= HXP.elapsed;		
 			
-			shakeOffsetX = Utils.randomRange( -shakeTimer, shakeTimer)*22.0/currentZoom;
-			shakeOffsetY = Utils.randomRange( -shakeTimer, shakeTimer)*22.0/currentZoom;
-			shakeTimer -= HXP.elapsed;			
+			if (Utils.randomRange(0, 10) > 5)
+			{
+				HXP.camera.x = Utils.randomRange( 4, 6);
+				HXP.camera.y = Utils.randomRange( 4, 6);
+			}
+			else
+			{
+				HXP.camera.x = Utils.randomRange( -4, -6);
+				HXP.camera.y = Utils.randomRange( -4, -6);
+			}
 		}
 		else
 		{
 			shakeOffsetX = 0.0;
 			shakeOffsetY = 0.0;
+			
+			HXP.camera.x = 0;
+			HXP.camera.y = 0;
 		}
 		
 		
@@ -219,8 +230,8 @@ class BaseWorld extends Scene
 			y = this.mapHeight() - HXP.height;
 		}
 		
-		this.panTargetX = x + shakeOffsetX;
-		this.panTargetY = y + shakeOffsetY;
+		this.panTargetX = x;
+		this.panTargetY = y;
 	}
 	
 	public function setZoomSpeed(value:Float)
@@ -231,13 +242,12 @@ class BaseWorld extends Scene
 	
 	public function setZoom(value:Float):Void
 	{
-		/*
-		
+
 		HXP.width = HXP.stage.stageWidth;
 		HXP.height = HXP.stage.stageHeight;
 		
 		HXP.screen.scaleX = HXP.screen.scaleY = value;
-		HXP.resize(HXP.stage.stageWidth, HXP.stage.stageHeight);*/
+		HXP.resize(HXP.stage.stageWidth, HXP.stage.stageHeight);
 	}
 	
 

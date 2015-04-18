@@ -26,18 +26,19 @@ class Nun extends BaseWorldEntity
 	private var inTheAir:Bool;
 	private var onSkateBoard:Bool;
 	private var ollieLandTimer:TimerEntity;
+	private var jumpUpTime:Float; 
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
-		y = HXP.height - 24;
-		jumpHeight = 30;
+		jumpHeight = 40;
+		jumpUpTime = 0.7;
 		super(x, y, graphic, mask);
 		
 		animatedSprite  = new Spritemap("graphics/nun.png", 24, 24);
 		
 		animatedSprite.add("static", [0], 10);
 		//animatedSprite.add("ollie", [0, 0,0,0,0, 14, 14, 14, 14, 14, 15, 15, 15], 20, false);
-		animatedSprite.add("ollieUp", [14,14,14,9, 9,9,8,8,8,8], 33.33, false);
+		animatedSprite.add("ollieUp", [14,14,14,9, 9,9,8,8,8,8], 10/jumpUpTime, false);
 		animatedSprite.add("ollieDown", [15,16,17,18,19], 31.25, false);
 		animatedSprite.add("idle", [0, 5], 8);
 		animatedSprite.add("run", [1, 2, 3], 10);
@@ -50,6 +51,8 @@ class Nun extends BaseWorldEntity
 		
 		this.graphic = animatedSprite;
 		//this.visible = false;
+		
+		this.setHitbox(12, 20, -6, -3);
 	}
 	
 	
@@ -91,7 +94,7 @@ class Nun extends BaseWorldEntity
 		animatedSprite.play("ollieUp");
 		this.skateBoard.ollieUp();
 		var tween:VarTween = new VarTween(this.finishOllieDown, TweenType.OneShot);
-		tween.tween(this, "y", y - jumpHeight, 0.3, Ease.quadOut);
+		tween.tween(this, "y", y - jumpHeight, jumpUpTime, Ease.quadOut);
 		this.addTween(tween, true);
 	}
 	

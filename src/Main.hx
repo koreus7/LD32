@@ -1,6 +1,7 @@
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import flash.events.Event;
+import com.haxepunk.utils.Key;
 
 class Main extends Engine
 {
@@ -17,8 +18,9 @@ class Main extends Engine
 	{
 #if debug
 		HXP.console.enable();
+		HXP.console.toggleKey = Key.DELETE;
 #end
-		
+
 		//HXP.screen.scale = 3.0;
 		HXP.scene = new MainScene();
 		

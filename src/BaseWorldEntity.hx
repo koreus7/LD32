@@ -18,8 +18,7 @@ class BaseWorldEntity extends Entity
 	public function new(x:Float=0, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
 		super(x, y, graphic, mask);
-		
-		this.baseWorld = cast(this.scene, BaseWorld);
+
 		
 		firstUpdate = true;
 	}
@@ -37,7 +36,8 @@ class BaseWorldEntity extends Entity
 	
 	public function firstUpdateCallback():Void
 	{
-		//Override this
+				
+		this.baseWorld = cast(this.scene, BaseWorld);
 	}
 	
 }

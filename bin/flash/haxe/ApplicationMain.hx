@@ -86,11 +86,23 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/cross.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/nun.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/road.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/skateboard.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/spikes.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
