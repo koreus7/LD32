@@ -90,6 +90,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/skateboard.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("04b03");
 		types.push (lime.Assets.AssetType.FONT);
 		

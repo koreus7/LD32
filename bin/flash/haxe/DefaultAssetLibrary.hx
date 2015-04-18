@@ -73,6 +73,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/concept.png", AssetType.IMAGE);
 		className.set ("graphics/nun.png", __ASSET__graphics_nun_png);
 		type.set ("graphics/nun.png", AssetType.IMAGE);
+		className.set ("graphics/skateboard.png", __ASSET__graphics_skateboard_png);
+		type.set ("graphics/skateboard.png", AssetType.IMAGE);
 		className.set ("font/04B_03__.ttf", __ASSET__font_5);
 		type.set ("font/04B_03__.ttf", AssetType.FONT);
 		
@@ -136,6 +138,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "graphics/skateboard.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "font/04B_03__.ttf";
 		className.set (id, __ASSET__font_5);
 		
@@ -163,6 +169,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__font_04b_03___ttf);
+		
 		
 		
 		
@@ -216,6 +223,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/nun.png", __ASSET__graphics_nun_png);
 		type.set ("graphics/nun.png", AssetType.IMAGE);
+		
+		className.set ("graphics/skateboard.png", __ASSET__graphics_skateboard_png);
+		type.set ("graphics/skateboard.png", AssetType.IMAGE);
 		
 		className.set ("font/04B_03__.ttf", __ASSET__font_5);
 		type.set ("font/04B_03__.ttf", AssetType.FONT);
@@ -834,6 +844,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__graphics_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_concept_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_nun_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_skateboard_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__font_5 extends flash.text.Font { }
 
 
@@ -849,6 +860,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__font_04b_03___ttf extends lime.text.Font { public function new () { super (); name = "04b03"; } } 
+
 
 
 
@@ -877,6 +889,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/graphics/background.png") #if display private #end class __ASSET__graphics_background_png extends lime.graphics.Image {}
 @:image("assets/graphics/concept.png") #if display private #end class __ASSET__graphics_concept_png extends lime.graphics.Image {}
 @:image("assets/graphics/nun.png") #if display private #end class __ASSET__graphics_nun_png extends lime.graphics.Image {}
+@:image("assets/graphics/skateboard.png") #if display private #end class __ASSET__graphics_skateboard_png extends lime.graphics.Image {}
 @:font("assets/font/04B_03__.ttf") #if display private #end class __ASSET__font_5 extends lime.text.Font {}
 
 

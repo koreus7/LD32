@@ -35,7 +35,7 @@ class BaseWorldEntity extends Entity
 		}
 	}
 	
-	private function firstUpdateCallback():Void
+	public function firstUpdateCallback():Void
 	{
 		//Override this
 	}
