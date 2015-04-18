@@ -22,8 +22,8 @@ class SkateBoard extends BaseWorldEntity
 		
 		animatedSprite.add("static", [0], 10);
 		//animatedSprite.add("ollie", [0, 0,0,0,0, 14, 14, 14, 14, 14, 15, 15, 15], 20, false);
-		animatedSprite.add("ollieUp", [14,14,14,14, 0,0,0,1,1,1], 33, false);
-		animatedSprite.add("ollieDown", [15], 20, true);
+		animatedSprite.add("ollieUp", [14,14,1,1, 1,1,1,0,0,0], 33, false);
+		animatedSprite.add("ollieDown", [15, 16], 12.25, true);
 		animatedSprite.play("static");
 		
 		this.graphic = animatedSprite;

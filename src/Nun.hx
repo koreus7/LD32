@@ -25,6 +25,7 @@ class Nun extends BaseWorldEntity
 	private var skateBoard:SkateBoard;
 	private var inTheAir:Bool;
 	private var onSkateBoard:Bool;
+	private var ollieLandTimer:TimerEntity;
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
@@ -36,18 +37,19 @@ class Nun extends BaseWorldEntity
 		
 		animatedSprite.add("static", [0], 10);
 		//animatedSprite.add("ollie", [0, 0,0,0,0, 14, 14, 14, 14, 14, 15, 15, 15], 20, false);
-		animatedSprite.add("ollieUp", [14,14,14,14, 8,8,8,9,9,9], 33, false);
-		animatedSprite.add("ollieDown", [15], 20, true);
+		animatedSprite.add("ollieUp", [14,14,14,9, 9,9,8,8,8,8], 33.33, false);
+		animatedSprite.add("ollieDown", [15,16,17,18,19], 31.25, false);
 		animatedSprite.add("idle", [0, 5], 8);
 		animatedSprite.add("run", [1, 2, 3], 10);
-		animatedSprite.add("jump", [1, 4], 10, false);
-		animatedSprite.add("ollieWindup", [1, 4], 10, false);
+		animatedSprite.add("jump", [4], 10, false);
+		animatedSprite.add("ollieWindup", [10], 5, false);
 		animatedSprite.play("idle");
 		
 		inTheAir = false;
 		onSkateBoard = true;
 		
 		this.graphic = animatedSprite;
+		//this.visible = false;
 	}
 	
 	
@@ -55,7 +57,7 @@ class Nun extends BaseWorldEntity
 	{
 		
 		super.update();
-		if (Input.check(Key.UP))
+		if (Input.check(Key.UP) && !inTheAir)
 		{
 			inTheAir = true;
 			this.startOllie();
@@ -87,8 +89,9 @@ class Nun extends BaseWorldEntity
 	public function ollieUp():Void
 	{
 		animatedSprite.play("ollieUp");
+		this.skateBoard.ollieUp();
 		var tween:VarTween = new VarTween(this.finishOllieDown, TweenType.OneShot);
-		tween.tween(this, "y", y - jumpHeight, 0.3, Ease.expoOut);
+		tween.tween(this, "y", y - jumpHeight, 0.3, Ease.quadOut);
 		this.addTween(tween, true);
 	}
 	
@@ -114,7 +117,17 @@ class Nun extends BaseWorldEntity
 	
 	public function landOllie(data:Dynamic = null):Void
 	{
-		HXP.log("Landed");
+		ollieLandTimer = new TimerEntity(0.08, balanceOllieAtFinish);
+		scene.add(ollieLandTimer);
+		
+		var cross:Cross = new Cross(x, y);
+		scene.add(cross);
+		baseWorld.shakeScreen(0.15);
+
+	}
+	
+	public function balanceOllieAtFinish(data:Dynamic = null):Void
+	{
 		this.skateBoard.goStatic();
 		goIdle();
 	}
