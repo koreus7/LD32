@@ -1,6 +1,7 @@
 import com.haxepunk.graphics.Image;
 import com.haxepunk.Scene;
 import com.haxepunk.HXP;
+import com.haxepunk.utils.Draw;
 
 class MainScene extends BaseWorld
 {
@@ -14,8 +15,8 @@ class MainScene extends BaseWorld
 		
 		var e:BaseWorldEntity = new BaseWorldEntity();
 		e.graphic = new Image("graphics/background.png");
+		e.layer = Layers.backBack;
 		this.add(e);
-
 		
 		this.roadGenerator = new RoadGenerator();
 		this.add(roadGenerator);
@@ -25,8 +26,6 @@ class MainScene extends BaseWorld
 		
 		var oc:OrbBotControler = new OrbBotControler();
 		this.add(oc);
-		
-		
 	}
-	  
+	
  }

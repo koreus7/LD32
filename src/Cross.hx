@@ -1,5 +1,6 @@
 package ;
 
+import com.haxepunk.Entity;
 import com.haxepunk.Graphic;
 import com.haxepunk.graphics.Image;
 import com.haxepunk.Mask;
@@ -20,19 +21,44 @@ class Cross extends BaseWorldEntity
 		
 		image = new Image("graphics/cross.png");
 		
+		var angle:Float = Utils.radToDeg(Math.atan( -speed.y / speed.x));
 		
-		var angle:Float = Utils.radToDeg(Math.atan(-speed.y / speed.x));
-		if (speed.x < 0 )
-		{
-			angle += 180;
-		}
+		
 		HXP.log(Std.string(angle));
 		
-		
+		if (speed.x < 0 )
+		{
+			if (angle > 45 && angle < 90 )
+			{
+				setHitbox(5, 7, 3, 5);
+			}
+			else if (angle < -45 )
+			{
+				setHitbox(5, 8, 3, 5);
+			}
+			else
+			{
+				setHitbox(8, 5, 8, 5);
+			}
+			
+			angle += 180;	
+		}
+		else
+		{
+			if (angle > 45 && angle < 90 )
+			{
+				setHitbox(5, 8, 3, 5);
+			}
+			else if (angle < -45 )
+			{
+				setHitbox(5, 7, 3, 5);
+			}
+			else
+			{
+				setHitbox(8, 5, 0, 0);
+			}
+		}	
 		image.angle = angle;
-		
-		
-		HXP.log ((Std.string(Math.atan(speed.y / speed.x))));
 		
 		this.graphic = image;
 		
@@ -40,7 +66,7 @@ class Cross extends BaseWorldEntity
 		
 		this.speed = speed;
 		
-		this.setHitbox(8, 5, -13, -10);
+		
 		
 	}
 	
@@ -54,6 +80,14 @@ class Cross extends BaseWorldEntity
 		if (this.x > HXP.width || this.x + this.width + 10 < 0 || this.y + this.height + 10 < 0 || this.y > HXP.height)
 		{
 			scene.remove(this);
+		}
+		
+		var e:Entity = collide("orbbot", x, y);
+		if (e != null)
+		{
+			var o:OrbBot = cast(e, OrbBot);
+			o.explode();
+			
 		}
 	}
 	

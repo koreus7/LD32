@@ -7,7 +7,7 @@ package ;
 class Globals
 {
 	
-	public static inline var scrollSpeed: Float = 50;
+	public static inline var scrollSpeed: Float = 100;
 	public static inline var generationOffset:Float = 128;
 	public static var nunPos:Vector2D = new Vector2D(0, 0);
 	public static var timeElapsed:Float = 0;

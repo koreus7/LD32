@@ -4,6 +4,7 @@ import com.haxepunk.Graphic;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.Mask;
 import com.haxepunk.HXP;
+import com.haxepunk.Tween;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
 
@@ -12,6 +13,7 @@ import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.tweens.motion.QuadMotion;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.utils.Draw;
+import com.haxepunk.graphics.Image;
 /**
  * ...
  * @author Leo Mahon
@@ -27,13 +29,23 @@ class Nun extends BaseWorldEntity
 	private var onSkateBoard:Bool;
 	private var ollieLandTimer:TimerEntity;
 	private var jumpUpTime:Float; 
+	private var exploded:Bool;
+	
+	private var ollieUpTween:VarTween; 
+	private var ollieDownTween:VarTween; 
+	private var groundDistance:Float;
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
-		jumpHeight = 40;
-		jumpUpTime = 0.7;
+
+
 		super(x, y, graphic, mask);
 		
+		jumpHeight = 50;
+		jumpUpTime = 0.6;
+		groundDistance = 0;
+
+		exploded = false;
 		animatedSprite  = new Spritemap("graphics/nun.png", 24, 24);
 		
 		animatedSprite.add("static", [0], 10);
@@ -59,10 +71,21 @@ class Nun extends BaseWorldEntity
 	override public function update():Void 
 	{	
 		super.update();
-		if (Input.check(Key.X) && !inTheAir)
+		
+		groundDistance = (HXP.height - 32) - (this.y + this.height) + 2;
+		
+		if (Input.check(Key.X))
 		{
-			inTheAir = true;
-			this.startOllie();
+			if (!inTheAir)
+			{
+				inTheAir = true;
+				this.startOllie();
+			}
+		}
+		else if (inTheAir &&  this.animatedSprite.currentAnim == "ollieUp")
+		{
+			ollieUpTween.cancel(); 
+			this.finishOllieDown();
 		}
 		
 		if (animatedSprite.complete  && animatedSprite.currentAnim == "ollieWindup")
@@ -77,7 +100,28 @@ class Nun extends BaseWorldEntity
 		
 		Globals.nunPos.x = x;
 		Globals.nunPos.y = y;
+		
+		if (collide("spikes", x, y) != null && !exploded ) 
+		{
+			explode();
+			this.exploded = true;
+			
+		}
 
+	}
+	
+	public function explode():Void
+	{
+		var b:BloodExplosion = new BloodExplosion(x + 10, y + 10);
+		b.layer = Layers.top;
+		scene.add(b);
+		die();
+	}
+	
+	public function die():Void
+	{
+		scene.remove(this);
+		scene.add(new GameOverEntity());
 	}
 	
 	public function snapSkateboard():Void
@@ -95,9 +139,11 @@ class Nun extends BaseWorldEntity
 	{
 		animatedSprite.play("ollieUp");
 		this.skateBoard.ollieUp();
-		var tween:VarTween = new VarTween(this.finishOllieDown, TweenType.OneShot);
-		tween.tween(this, "y", y - jumpHeight, jumpUpTime, Ease.quadOut);
-		this.addTween(tween, true);
+		
+		
+		ollieUpTween =   new VarTween(this.finishOllieDown, TweenType.OneShot);	
+		ollieUpTween.tween(this, "y", y - jumpHeight, jumpUpTime, Ease.quadOut);
+		this.addTween(ollieUpTween, true);
 	}
 	
 	public function finishOllieDown(data:Dynamic = null ):Void
@@ -105,10 +151,9 @@ class Nun extends BaseWorldEntity
 		
 		animatedSprite.play("ollieDown");
 		skateBoard.ollieDown();
-		
-		var tween:VarTween = new VarTween(landOllie, TweenType.OneShot);
-		tween.tween(this, "y", y + jumpHeight, 0.16, Ease.quadOut);
-		this.addTween(tween, true);
+		ollieDownTween = new VarTween(landOllie, TweenType.OneShot);
+		ollieDownTween.tween(this, "y", y + groundDistance, 0.16, Ease.quadOut);
+		this.addTween(ollieDownTween, true);
 	}
 	
 	
@@ -144,10 +189,11 @@ class Nun extends BaseWorldEntity
 		
 		
 		//TO DO 
-		Draw.line(Math.floor(x + 14), Math.floor(y + 12), Math.floor(vel.x), Math.floor(vel.y));
+		//Draw.line(Math.floor(x + 14), Math.floor(y + 12), Math.floor(vel.x), Math.floor(vel.y));
 		
 		
 		var cross:Cross = new Cross(x + 14, y + 12, vel);
+		cross.layer = Layers.top;
 		scene.add(cross);
 		baseWorld.shakeScreen(0.15);
 

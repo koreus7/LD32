@@ -21,6 +21,8 @@ class BaseWorldEntity extends Entity
 
 		
 		firstUpdate = true;
+		
+		this.layer = Layers.main;
 	}
 	
 	override public function update():Void 

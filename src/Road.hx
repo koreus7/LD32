@@ -23,6 +23,8 @@ class Road extends ScrollingEntity
 		
 		this.setHitbox(image.width, image.height);
 		
+		layer = Layers.back;
+		
 	}
 	
 	override public function update():Void 
@@ -30,7 +32,7 @@ class Road extends ScrollingEntity
 		super.update();
 		
 		//Padding
-		this.atatchPoint.x = this.x + this.width - 2;
+		this.atatchPoint.x = this.x + this.width - 3;
 		
 		this.atatchPoint.y = this.y;
 	}

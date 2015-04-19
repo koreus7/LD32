@@ -69,6 +69,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("font/04B_03__.ttf.png", AssetType.IMAGE);
 		className.set ("graphics/background.png", __ASSET__graphics_background_png);
 		type.set ("graphics/background.png", AssetType.IMAGE);
+		className.set ("graphics/bloodDrop.png", __ASSET__graphics_blooddrop_png);
+		type.set ("graphics/bloodDrop.png", AssetType.IMAGE);
 		className.set ("graphics/concept.png", __ASSET__graphics_concept_png);
 		type.set ("graphics/concept.png", AssetType.IMAGE);
 		className.set ("graphics/cross.png", __ASSET__graphics_cross_png);
@@ -138,6 +140,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "graphics/bloodDrop.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "graphics/concept.png";
 		path.set (id, id);
 		
@@ -202,6 +208,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__font_5);
 		
 		#end
@@ -245,6 +252,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/background.png", __ASSET__graphics_background_png);
 		type.set ("graphics/background.png", AssetType.IMAGE);
+		
+		className.set ("graphics/bloodDrop.png", __ASSET__graphics_blooddrop_png);
+		type.set ("graphics/bloodDrop.png", AssetType.IMAGE);
 		
 		className.set ("graphics/concept.png", __ASSET__graphics_concept_png);
 		type.set ("graphics/concept.png", AssetType.IMAGE);
@@ -882,6 +892,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_blooddrop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_concept_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_cross_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_enemy_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -913,6 +924,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep #if display private #end class __ASSET__font_5 extends lime.text.Font { public function new () { super (); name = "04b03"; } } 
 
 
@@ -935,6 +947,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:font("C:/HaxeToolkit/haxe/lib/HaxePunk/2,5,3/assets/font/04B_03__.ttf") #if display private #end class __ASSET__font_04b_03___ttf extends lime.text.Font {}
 @:image("C:/HaxeToolkit/haxe/lib/HaxePunk/2,5,3/assets/font/04B_03__.ttf.png") #if display private #end class __ASSET__font_04b_03___ttf_png extends lime.graphics.Image {}
 @:image("assets/graphics/background.png") #if display private #end class __ASSET__graphics_background_png extends lime.graphics.Image {}
+@:image("assets/graphics/bloodDrop.png") #if display private #end class __ASSET__graphics_blooddrop_png extends lime.graphics.Image {}
 @:image("assets/graphics/concept.png") #if display private #end class __ASSET__graphics_concept_png extends lime.graphics.Image {}
 @:image("assets/graphics/cross.png") #if display private #end class __ASSET__graphics_cross_png extends lime.graphics.Image {}
 @:image("assets/graphics/enemy.png") #if display private #end class __ASSET__graphics_enemy_png extends lime.graphics.Image {}

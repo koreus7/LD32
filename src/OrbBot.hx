@@ -9,7 +9,7 @@ import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.tweens.motion.QuadMotion;
 import com.haxepunk.utils.Ease;
 import com.haxepunk.HXP;
-
+import com.haxepunk.utils.Draw;
 /**
  * ...
  * @author Leo Mahon
@@ -32,7 +32,13 @@ class OrbBot extends BaseWorldEntity
 		animatedSprite.play("idle");
 		this.graphic = animatedSprite;
 		
+		type = "orbbot";
+		
+		this.setHitbox(10, 10);
+		
 		inMotion = false;
+		
+		Draw.circle(100, 100, 100);
 	}
 
 	override public function update():Void 
@@ -136,6 +142,11 @@ class OrbBot extends BaseWorldEntity
 	private function endMotion(data:Dynamic = null ):Void
 	{
 		inMotion = false;
+	}
+	
+	public function explode():Void
+	{
+		scene.remove(this);
 	}
 	
 	
