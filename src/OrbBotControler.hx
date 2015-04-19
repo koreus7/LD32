@@ -55,12 +55,12 @@ class OrbBotControler extends BaseWorldEntity
 		spawnPeriod -= HXP.elapsed;
 		if (spawnPeriod <= 0)
 		{
-			spawnPeriod = 50 * (1.0 - Globals.orbotDificulty);
-			for ( i in 0...3)
+			spawnPeriod = 10 * (1.0 - Globals.orbotDificulty);
+			for ( i in 0...5)
 			{
 				if (Math.random() < spawnProbability && !firstUpdate) 
 				{
-					var o:OrbBot = new OrbBot(Utils.randomRange(HXP.width - 50, HXP.width), Utils.randomRange(0,10));
+					var o:OrbBot = new OrbBot(Utils.randomRange(HXP.width - 25, HXP.width), Utils.randomRange(0,10));
 					scene.add(o);
 				}
 			}

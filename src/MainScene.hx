@@ -26,6 +26,9 @@ class MainScene extends BaseWorld
 		
 		var oc:OrbBotControler = new OrbBotControler();
 		this.add(oc);
+		
+		var hud:Hud = new Hud();
+		this.add(hud);
 	}
 	
  }

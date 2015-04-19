@@ -69,6 +69,10 @@ class BloodExplosion extends BaseWorldEntity
 		var b:BloodDrop = new BloodDrop(x,y, vel);
 		
 		scene.add(b);
+		vel = new Vector2D(200.0 * Math.random() * Utils.randSign(), 10.0 * Math.random() * Utils.randSign());
+		b = new BloodDrop(x,y, vel);
+		
+		scene.add(b);
 		
 	}
 	

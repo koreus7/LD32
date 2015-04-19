@@ -4,6 +4,7 @@ import com.haxepunk.Graphic;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.Mask;
 import com.haxepunk.HXP;
+import com.haxepunk.Sfx;
 import com.haxepunk.Tween;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
@@ -34,10 +35,12 @@ class Nun extends BaseWorldEntity
 	private var ollieUpTween:VarTween; 
 	private var ollieDownTween:VarTween; 
 	private var groundDistance:Float;
+	private var crossSound:Sfx;
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
 
+		crossSound = new Sfx("audio/squelch.mp3");
 
 		super(x, y, graphic, mask);
 		
@@ -196,6 +199,8 @@ class Nun extends BaseWorldEntity
 		cross.layer = Layers.top;
 		scene.add(cross);
 		baseWorld.shakeScreen(0.15);
+		crossSound.play();
+		
 
 	}
 	

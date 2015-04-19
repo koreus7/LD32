@@ -147,6 +147,9 @@ class OrbBot extends BaseWorldEntity
 	public function explode():Void
 	{
 		scene.remove(this);
+		var e = new Explosion(x , y);
+		scene.add(e);
+		Globals.score += 10;
 	}
 	
 	

@@ -98,6 +98,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/explosion.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/nun.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -112,6 +116,10 @@ class ApplicationMain {
 		
 		urls.push ("graphics/spikes.png");
 		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("audio/squelch.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
 		urls.push ("04b03");

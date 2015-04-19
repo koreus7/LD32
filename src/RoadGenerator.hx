@@ -31,7 +31,7 @@ class RoadGenerator extends BaseWorldEntity
 		Globals.maxTime = maxTime;
 		
 		spikePeriod = 0.0;
-		minimumSeperation = 32;
+		minimumSeperation = 40;
 	}
 	
 	override public function update():Void 
