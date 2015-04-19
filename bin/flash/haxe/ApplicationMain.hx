@@ -90,6 +90,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/enemy.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/nun.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		

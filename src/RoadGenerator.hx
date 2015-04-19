@@ -26,13 +26,15 @@ class RoadGenerator extends BaseWorldEntity
 		super(x, y, graphic, mask);
 		timeElapsed = 0;
 		generatedSpikesLast = false;
+		
+		Globals.maxTime = maxTime;
 	}
 	
 	override public function update():Void 
 	{
 		super.update();
-		
 		timeElapsed += HXP.elapsed;
+		Globals.timeElapsed = timeElapsed;
 	}
 	
 	override public function firstUpdateCallback():Void 
@@ -56,8 +58,7 @@ class RoadGenerator extends BaseWorldEntity
 		var road = new Road(atatchPoint.x, atatchPoint.y, generateNextBlock);
 		scene.add(road);
 		
-		var percentage:Float = ((timeElapsed + 200)*(timeElapsed + 200))/ RoadGenerator.maxTime;
-		HXP.log(Std.string(percentage));
+		var percentage:Float = ((timeElapsed + 120)*(timeElapsed + 120))/ RoadGenerator.maxTime;
 		if ( Math.random() < percentage && !generatedSpikesLast)
 		{
 			var s:Spikes = new Spikes(atatchPoint.x , atatchPoint.y -4, null);
