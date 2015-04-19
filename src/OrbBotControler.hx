@@ -76,8 +76,6 @@ class OrbBotControler extends BaseWorldEntity
 		
 	private function waitForDrop(data:Dynamic = null):Void
 	{
-		
-		HXP.log(Std.string(Globals.orbotDificulty));
 		waitLength = (1 - Globals.orbotDificulty) * 15.0;
 		Globals.orbBotStopFlash = true;
 		Globals.orbBotMove = true;

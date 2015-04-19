@@ -11,6 +11,11 @@ class Utils
 	{
 		
 	}
+	
+	public static inline function radToDeg(angle:Float):Float
+	{
+		return 57.2957795 * angle;
+	}
 		
 	public static inline function randInt(max:Int):Int
 	{

@@ -11,7 +11,7 @@ import com.haxepunk.Tween.TweenType;
 import com.haxepunk.tweens.misc.VarTween;
 import com.haxepunk.tweens.motion.QuadMotion;
 import com.haxepunk.utils.Ease;
-
+import com.haxepunk.utils.Draw;
 /**
  * ...
  * @author Leo Mahon
@@ -77,7 +77,7 @@ class Nun extends BaseWorldEntity
 		
 		Globals.nunPos.x = x;
 		Globals.nunPos.y = y;
-		
+
 	}
 	
 	public function snapSkateboard():Void
@@ -127,7 +127,27 @@ class Nun extends BaseWorldEntity
 		
 		scene.add(ollieLandTimer);
 		
-		var cross:Cross = new Cross(x, y);
+		var xOff:Float = 0.0;
+		var yOff:Float = 0.0;
+		
+		if (Input.mouseX - (x + halfWidth) < 0)
+		{
+			yOff = 3.0;
+		}
+		else
+		{
+			yOff = -3.0;
+		}
+		
+		var vel:Vector2D = new Vector2D(Input.mouseX - (x + halfWidth) + xOff, Input.mouseY - (y + halfHeight) + yOff);
+		vel.scale(1.0);
+		
+		
+		//TO DO 
+		Draw.line(Math.floor(x + 14), Math.floor(y + 12), Math.floor(vel.x), Math.floor(vel.y));
+		
+		
+		var cross:Cross = new Cross(x + 14, y + 12, vel);
 		scene.add(cross);
 		baseWorld.shakeScreen(0.15);
 
