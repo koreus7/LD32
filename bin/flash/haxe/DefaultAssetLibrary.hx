@@ -87,6 +87,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/skateboard.png", AssetType.IMAGE);
 		className.set ("graphics/spikes.png", __ASSET__graphics_spikes_png);
 		type.set ("graphics/spikes.png", AssetType.IMAGE);
+		className.set ("audio/ollie.mp3", __ASSET__audio_ollie_mp3);
+		type.set ("audio/ollie.mp3", AssetType.MUSIC);
+		className.set ("audio/orbbotbeep.mp3", __ASSET__audio_orbbotbeep_mp3);
+		type.set ("audio/orbbotbeep.mp3", AssetType.MUSIC);
+		className.set ("audio/orbotdie.mp3", __ASSET__audio_orbotdie_mp3);
+		type.set ("audio/orbotdie.mp3", AssetType.MUSIC);
+		className.set ("audio/powerup.mp3", __ASSET__audio_powerup_mp3);
+		type.set ("audio/powerup.mp3", AssetType.MUSIC);
 		className.set ("audio/squelch.mp3", __ASSET__audio_squelch_mp3);
 		type.set ("audio/squelch.mp3", AssetType.MUSIC);
 		className.set ("font/04B_03__.ttf", __ASSET__font_5);
@@ -180,6 +188,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "audio/ollie.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/orbbotbeep.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/orbotdie.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "audio/powerup.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		id = "audio/squelch.mp3";
 		path.set (id, id);
 		
@@ -211,6 +235,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__font_04b_03___ttf);
+		
+		
+		
+		
 		
 		
 		
@@ -293,6 +321,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/spikes.png", __ASSET__graphics_spikes_png);
 		type.set ("graphics/spikes.png", AssetType.IMAGE);
+		
+		className.set ("audio/ollie.mp3", __ASSET__audio_ollie_mp3);
+		type.set ("audio/ollie.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/orbbotbeep.mp3", __ASSET__audio_orbbotbeep_mp3);
+		type.set ("audio/orbbotbeep.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/orbotdie.mp3", __ASSET__audio_orbotdie_mp3);
+		type.set ("audio/orbotdie.mp3", AssetType.MUSIC);
+		
+		className.set ("audio/powerup.mp3", __ASSET__audio_powerup_mp3);
+		type.set ("audio/powerup.mp3", AssetType.MUSIC);
 		
 		className.set ("audio/squelch.mp3", __ASSET__audio_squelch_mp3);
 		type.set ("audio/squelch.mp3", AssetType.MUSIC);
@@ -921,6 +961,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__graphics_road_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_skateboard_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_spikes_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__audio_ollie_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_orbbotbeep_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_orbotdie_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__audio_powerup_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__audio_squelch_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__font_5 extends flash.text.Font { }
 
@@ -937,6 +981,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__font_04b_03___ttf extends lime.text.Font { public function new () { super (); name = "04b03"; } } 
+
+
+
+
 
 
 
@@ -980,6 +1028,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/graphics/road.png") #if display private #end class __ASSET__graphics_road_png extends lime.graphics.Image {}
 @:image("assets/graphics/skateboard.png") #if display private #end class __ASSET__graphics_skateboard_png extends lime.graphics.Image {}
 @:image("assets/graphics/spikes.png") #if display private #end class __ASSET__graphics_spikes_png extends lime.graphics.Image {}
+@:file("assets/audio/ollie.mp3") #if display private #end class __ASSET__audio_ollie_mp3 extends lime.utils.ByteArray {}
+@:file("assets/audio/orbbotbeep.mp3") #if display private #end class __ASSET__audio_orbbotbeep_mp3 extends lime.utils.ByteArray {}
+@:file("assets/audio/orbotdie.mp3") #if display private #end class __ASSET__audio_orbotdie_mp3 extends lime.utils.ByteArray {}
+@:file("assets/audio/powerup.mp3") #if display private #end class __ASSET__audio_powerup_mp3 extends lime.utils.ByteArray {}
 @:file("assets/audio/squelch.mp3") #if display private #end class __ASSET__audio_squelch_mp3 extends lime.utils.ByteArray {}
 @:font("assets/font/04B_03__.ttf") #if display private #end class __ASSET__font_5 extends lime.text.Font {}
 

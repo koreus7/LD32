@@ -31,11 +31,19 @@ class RoadGenerator extends BaseWorldEntity
 		Globals.maxTime = maxTime;
 		
 		spikePeriod = 0.0;
-		minimumSeperation = 40;
+		minimumSeperation = 80 ;
 	}
 	
 	override public function update():Void 
 	{
+		if (Globals.timeElapsed < 15)
+		{
+			minimumSeperation = 200;
+		}
+		else
+		{
+			minimumSeperation = 80 ;
+		}
 		super.update();
 		timeElapsed += HXP.elapsed;
 		Globals.timeElapsed = timeElapsed;
@@ -49,9 +57,9 @@ class RoadGenerator extends BaseWorldEntity
 			var percentage:Float = ((timeElapsed + 200)*(timeElapsed + 200))/ RoadGenerator.maxTime;
 			spikePeriod = Math.random() * 2.0 / percentage;
 			// Minimum seperation.
-			if (spikePeriod * Globals.scrollSpeed < minimumSeperation)
+			if (spikePeriod * Globals.scrollSpeed < minimumSeperation )
 			{
-				spikePeriod = 32 / Globals.scrollSpeed;
+				spikePeriod = minimumSeperation / Globals.scrollSpeed;
 			}
 			
 			

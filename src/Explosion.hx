@@ -5,6 +5,7 @@ import com.haxepunk.graphics.Image;
 import com.haxepunk.Mask;
 import com.haxepunk.graphics.Emitter;
 import com.haxepunk.HXP;
+import com.haxepunk.Sfx;
 import com.haxepunk.utils.Ease;
 
 /**
@@ -22,6 +23,8 @@ class Explosion extends BaseWorldEntity
 	{
 		super(x, y, graphic, mask);
 		
+
+		
 		lifeTime 		= 	0.3;
 		timeElapsed 	= 	0;
 		numParticles 	= 	100;
@@ -38,7 +41,7 @@ class Explosion extends BaseWorldEntity
 		
 		emitter.setColor("explode", 0xff0000, 0xfcff00, Ease.expoOut);
 		
-		this.graphic = emitter;
+		//this.graphic = emitter;
 		
 		emitter.x -= 50;
 		emitter.y -= 50;
@@ -48,7 +51,11 @@ class Explosion extends BaseWorldEntity
 			emitter.emit("explode", centerX + 8, centerY + 8);
 		}
 	}
-	
+	override public function firstUpdateCallback():Void 
+	{
+		super.firstUpdateCallback();
+
+	}
 	override public function update():Void
 	{	
 		timeElapsed += HXP.elapsed;

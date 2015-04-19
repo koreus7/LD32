@@ -1,5 +1,5 @@
 package ;
-
+import com.haxepunk.HXP;
 /**
  * ...
  * @author Leo Mahon
@@ -44,6 +44,10 @@ class Utils
 		return lowerBound + Math.random() * (upperBound - lowerBound + 1);
 	}
 	
+	public static inline function onScreen(x, y, width, height)
+	{
+		return x > HXP.width || x + width < 0 || y + height  < 0 || y > HXP.height;
+	}
 	
 	//Take a time in seconds and make it a string with minutes and seconds seperated by a colon
 	public static function formatTime(value:Float):String

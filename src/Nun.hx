@@ -1,5 +1,6 @@
 package ;
 
+import com.haxepunk.Entity;
 import com.haxepunk.Graphic;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.Mask;
@@ -36,12 +37,16 @@ class Nun extends BaseWorldEntity
 	private var ollieDownTween:VarTween; 
 	private var groundDistance:Float;
 	private var crossSound:Sfx;
+	private var dieSound:Sfx;
+	private var ollieSound:Sfx;
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
+		
+		ollieSound = new Sfx("audio/ollie.mp3");
 
-		crossSound = new Sfx("audio/squelch.mp3");
-
+		crossSound = new Sfx("audio/crossThrow.mp3");
+		dieSound = new Sfx("audio/squelch.mp3");
 		super(x, y, graphic, mask);
 		
 		jumpHeight = 50;
@@ -83,6 +88,7 @@ class Nun extends BaseWorldEntity
 			{
 				inTheAir = true;
 				this.startOllie();
+				ollieSound.play();
 			}
 		}
 		else if (inTheAir &&  this.animatedSprite.currentAnim == "ollieUp")
@@ -110,6 +116,15 @@ class Nun extends BaseWorldEntity
 			this.exploded = true;
 			
 		}
+		
+		var e:Entity = collide("orbbot", x, y);
+		
+		if ( e != null)
+		{
+			var o:OrbBot = cast(e, OrbBot);
+			o.explode();
+			this.explode();
+		}
 
 	}
 	
@@ -118,6 +133,7 @@ class Nun extends BaseWorldEntity
 		var b:BloodExplosion = new BloodExplosion(x + 10, y + 10);
 		b.layer = Layers.top;
 		scene.add(b);
+		dieSound.play();
 		die();
 	}
 	
@@ -170,7 +186,7 @@ class Nun extends BaseWorldEntity
 	
 	public function landOllie(data:Dynamic = null):Void
 	{
-		
+		ollieSound.play();
 		ollieLandTimer = new TimerEntity(0.08, balanceOllieAtFinish);
 		
 		scene.add(ollieLandTimer);

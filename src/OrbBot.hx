@@ -3,6 +3,7 @@ package ;
 import com.haxepunk.Graphic;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.Mask;
+import com.haxepunk.Sfx;
 
 import com.haxepunk.Tween.TweenType;
 import com.haxepunk.tweens.misc.VarTween;
@@ -20,13 +21,16 @@ class OrbBot extends BaseWorldEntity
 	private var animatedSprite:Spritemap;
 	private var tweenTime:Float;
 	private var inMotion:Bool;
-
+	private var dieSound:Sfx;
+	
 	public function new(x:Float=0, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
 		super(x, y, graphic, mask);
 		
+		dieSound = new Sfx("audio/orbotdie.mp3");
+		
 		animatedSprite = new Spritemap("graphics/enemy.png", 24, 24);
-		tweenTime = 5.0;
+		tweenTime = 3.0;
 		animatedSprite.add("idle", [0], 1);
 		animatedSprite.add("flash", [0, 1], 10, true);
 		animatedSprite.play("idle");
@@ -100,7 +104,6 @@ class OrbBot extends BaseWorldEntity
 		}
 		else
 		{
-	
 			
 			x = x  * (0.5  + 0.0005 *(900 - distance));
 			y = y  * (0.5  + 0.0005* (900 - distance));
@@ -108,16 +111,16 @@ class OrbBot extends BaseWorldEntity
 			if (distance > 150)
 			{
 				x = 0.4 * x;
-				y = 0.4 * y; 
-				offsetRange = 50;
+				y = 0.55 * y; 
+				offsetRange = 55;
 			}
 			else if (distance > 100)
 			{
 				x = 0.5 * x;
-				y = 0.5 * y; 
-				offsetRange = 20;
+				y = 0.66 * y; 
+				offsetRange = 25;
 			}
-			else if (distance > 70)
+			else if (distance > 80)
 			{
 				offsetRange = 5;
 			}
@@ -126,12 +129,38 @@ class OrbBot extends BaseWorldEntity
 				offsetRange = 3;
 			}
 			
+			var X:Float =  x + Utils.randomRange( -offsetRange, offsetRange) + Utils.randomRange( -offsetRange, offsetRange / 10.0);
+			var Y:Float =  y + Utils.randomRange( -offsetRange, offsetRange) + Utils.randomRange( -offsetRange, offsetRange / 10.0);
+			
+			if ( X > HXP.width )
+			{
+				X = HXP.width - width;
+			}
+			else if ( X  + width < 0 )
+			{
+				X = 0;
+			}
+			
+			if ( Y > HXP.width )
+			{
+				Y = HXP.width - width;
+			}
+			else if ( Y  + width < 0 )
+			{
+				Y = 0;
+			}
+			
+			
+			
+			
+			
 			var xtween:VarTween = new VarTween(endMotion , TweenType.OneShot);
-			xtween.tween(this, "x", x + Utils.randomRange(-offsetRange,offsetRange) + Utils.randomRange(-offsetRange, offsetRange/10.0),tweenTime, Ease.quadOut);
+			xtween.tween(this, "x", X,tweenTime, Ease.quadOut);
 			this.addTween(xtween, true);
 			
 			var ytween:VarTween = new VarTween(null, TweenType.OneShot);
-			ytween.tween(this, "y", y + Utils.randomRange(-offsetRange,offsetRange) + Utils.randomRange(-offsetRange, offsetRange/10.0), tweenTime, Ease.bounceInOut);
+			ytween.tween(this, "y", Y, tweenTime, Ease.bounceInOut);
+			
 			this.addTween(ytween, true);
 		}
 		
@@ -146,9 +175,11 @@ class OrbBot extends BaseWorldEntity
 	
 	public function explode():Void
 	{
+		
 		scene.remove(this);
 		var e = new Explosion(x , y);
 		scene.add(e);
+		dieSound.play();
 		Globals.score += 10;
 	}
 	
