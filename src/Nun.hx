@@ -57,9 +57,10 @@ class Nun extends BaseWorldEntity
 	
 	
 	override public function update():Void 
-	{	
+	{
+		
 		super.update();
-		if (Input.check(Key.X) && !inTheAir)
+		if (Input.check(Key.UP) && !inTheAir)
 		{
 			inTheAir = true;
 			this.startOllie();
@@ -74,9 +75,6 @@ class Nun extends BaseWorldEntity
 		{
 			snapSkateboard();
 		}
-		
-		Globals.nunPos.x = x;
-		Globals.nunPos.y = y;
 		
 	}
 	
@@ -122,9 +120,7 @@ class Nun extends BaseWorldEntity
 	
 	public function landOllie(data:Dynamic = null):Void
 	{
-		
 		ollieLandTimer = new TimerEntity(0.08, balanceOllieAtFinish);
-		
 		scene.add(ollieLandTimer);
 		
 		var cross:Cross = new Cross(x, y);

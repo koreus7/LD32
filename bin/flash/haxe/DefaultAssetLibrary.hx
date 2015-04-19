@@ -73,8 +73,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/concept.png", AssetType.IMAGE);
 		className.set ("graphics/cross.png", __ASSET__graphics_cross_png);
 		type.set ("graphics/cross.png", AssetType.IMAGE);
-		className.set ("graphics/enemy.png", __ASSET__graphics_enemy_png);
-		type.set ("graphics/enemy.png", AssetType.IMAGE);
 		className.set ("graphics/nun.png", __ASSET__graphics_nun_png);
 		type.set ("graphics/nun.png", AssetType.IMAGE);
 		className.set ("graphics/road.png", __ASSET__graphics_road_png);
@@ -146,10 +144,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "graphics/enemy.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		id = "graphics/nun.png";
 		path.set (id, id);
 		
@@ -193,7 +187,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__font_04b_03___ttf);
-		
 		
 		
 		
@@ -251,9 +244,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/cross.png", __ASSET__graphics_cross_png);
 		type.set ("graphics/cross.png", AssetType.IMAGE);
-		
-		className.set ("graphics/enemy.png", __ASSET__graphics_enemy_png);
-		type.set ("graphics/enemy.png", AssetType.IMAGE);
 		
 		className.set ("graphics/nun.png", __ASSET__graphics_nun_png);
 		type.set ("graphics/nun.png", AssetType.IMAGE);
@@ -884,7 +874,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__graphics_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_concept_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_cross_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_enemy_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_nun_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_road_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_skateboard_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -904,7 +893,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__font_04b_03___ttf extends lime.text.Font { public function new () { super (); name = "04b03"; } } 
-
 
 
 
@@ -937,7 +925,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/graphics/background.png") #if display private #end class __ASSET__graphics_background_png extends lime.graphics.Image {}
 @:image("assets/graphics/concept.png") #if display private #end class __ASSET__graphics_concept_png extends lime.graphics.Image {}
 @:image("assets/graphics/cross.png") #if display private #end class __ASSET__graphics_cross_png extends lime.graphics.Image {}
-@:image("assets/graphics/enemy.png") #if display private #end class __ASSET__graphics_enemy_png extends lime.graphics.Image {}
 @:image("assets/graphics/nun.png") #if display private #end class __ASSET__graphics_nun_png extends lime.graphics.Image {}
 @:image("assets/graphics/road.png") #if display private #end class __ASSET__graphics_road_png extends lime.graphics.Image {}
 @:image("assets/graphics/skateboard.png") #if display private #end class __ASSET__graphics_skateboard_png extends lime.graphics.Image {}

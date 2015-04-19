@@ -22,11 +22,6 @@ class MainScene extends BaseWorld
 	
 		this.nun = new Nun(50, HXP.height - 24 -RoadGenerator.roadHeight);
 		this.add(nun);
-		
-		var oc:OrbBotControler = new OrbBotControler();
-		this.add(oc);
-		
-		
 	}
 	  
  }

@@ -32,9 +32,4 @@ class Vector2D
 	{
 		return new Vector2D(x * k, y * k);
 	}
-	
-	public function distance(v :Vector2D): Float
-	{
-		return  Math.sqrt((this.x - v.x) * (this.x - v.x) + (this.y - v.y) * (this.y - v.y));
-	}
 }

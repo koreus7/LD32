@@ -19,7 +19,7 @@ class TimerEntity extends Entity
 
 	private var reusable:Bool;
 		
-	public function new(time:Float,_callback:Dynamic,reusable:Bool = false):Void
+	public function new(time:Float,_callback,reusable:Bool = false):Void
 	{
 		super();
 		
