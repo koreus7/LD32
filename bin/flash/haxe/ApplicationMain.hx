@@ -118,6 +118,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/startScreen.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("audio/ollie.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
@@ -135,6 +139,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("audio/squelch.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("audio/tunes.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		

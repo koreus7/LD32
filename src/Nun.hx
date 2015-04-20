@@ -39,13 +39,14 @@ class Nun extends BaseWorldEntity
 	private var crossSound:Sfx;
 	private var dieSound:Sfx;
 	private var ollieSound:Sfx;
+	private var started:Bool;
 	
 	public function new(x:Float=100, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
-		
+		started = false;
 		ollieSound = new Sfx("audio/ollie.mp3");
 
-		crossSound = new Sfx("audio/crossThrow.mp3");
+		//crossSound = new Sfx("audio/crossThrow.mp3");
 		dieSound = new Sfx("audio/squelch.mp3");
 		super(x, y, graphic, mask);
 		
@@ -84,6 +85,7 @@ class Nun extends BaseWorldEntity
 		
 		if (Input.check(Key.X))
 		{
+			started = true;
 			if (!inTheAir)
 			{
 				inTheAir = true;
@@ -215,7 +217,7 @@ class Nun extends BaseWorldEntity
 		cross.layer = Layers.top;
 		scene.add(cross);
 		baseWorld.shakeScreen(0.15);
-		crossSound.play();
+		//crossSound.play();
 		
 
 	}

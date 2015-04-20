@@ -17,4 +17,6 @@ class Globals
 	public static var orbBotFlash:Bool = false;
 	public static var orbBotStopFlash:Bool = false;
 	public static var score:Int = 0;
+	public static var started:Bool = false;
+	public static var first:Bool = true;
 }
